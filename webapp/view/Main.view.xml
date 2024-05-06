@@ -1,0 +1,21 @@
+<mvc:View xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" controllerName="com.eren.addresstransfer.controller.Main">
+<ObjectPageLayout  id="_IDGenObjectPageLayout1" showFooter="true" showHeaderContent="true" toggleHeaderOnTitleClick="true">
+	
+        <headerContent>
+
+<core:Fragment type="XML" fragmentName="com.eren.addresstransfer.fragment.main.Header"/>
+</headerContent>
+<sections>
+<ObjectPageSection id="_IDGenObjectPageSection1" showTitle="false">
+<subSections>
+<ObjectPageSubSection id="_IDGenObjectPageSubSection1">
+<core:Fragment type="XML" fragmentName="com.eren.addresstransfer.fragment.main.Content"/>
+</ObjectPageSubSection>
+</subSections>
+</ObjectPageSection>
+</sections>
+<footer>
+<core:Fragment type="XML" fragmentName="com.eren.addresstransfer.fragment.main.Footer"/>
+</footer>
+</ObjectPageLayout>
+</mvc:View>

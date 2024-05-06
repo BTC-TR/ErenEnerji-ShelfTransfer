@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZEWM_ADDRESS_TO_ADDRESS_TRNS_SRV" xml:lang="tr" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="Data" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="IvCharg"/>
+                    <PropertyRef Name="IvGuid"/>
+                    <PropertyRef Name="IvMatnr"/>
+                </Key>
+                <Property Name="IvCharg" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Parti" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Stok GUID'i" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvMatnr" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Ürün" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvMeins" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Tml.ölçü birimi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="IvMiktar" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="INT1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvNlpla" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="VYDpAd" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvOwner" Type="Edm.String" Nullable="false" MaxLength="28" sap:unicode="false" sap:label="Sahip" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvOwnerText" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Sahip tanımı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvVlpla" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="ÇkYrDA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="BarcodeQuery" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GuidStock"/>
+                    <PropertyRef Name="Matnr"/>
+                </Key>
+                <Property Name="IvCharg" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Parti" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvLgpla" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Depo adresi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvMatnr" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Ürün" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GuidStock" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Stok GUID'i" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Ürün" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Charg" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Parti" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Maktx" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Ürün tanımı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Owner" Type="Edm.String" Nullable="false" MaxLength="28" sap:unicode="false" sap:label="Sahip" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OwnerText" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Sahip tanımı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Meins" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Tml.ölçü birimi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+            </EntityType>
+            <EntityType Name="List" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GuidStock"/>
+                    <PropertyRef Name="Matnr"/>
+                    <PropertyRef Name="Charg"/>
+                </Key>
+                <Property Name="GuidStock" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Stok GUID'i" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Ürün" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Charg" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Parti" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Miktar" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="INT1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Meins" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Tml.ölçü birimi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Vlpla" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="ÇkYrDA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Nlpla" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="VYDpAd" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Owner" Type="Edm.String" Nullable="false" MaxLength="28" sap:unicode="false" sap:label="Sahip" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OwnerText" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Sahip tanımı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Uname" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Kullanıcı adı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Erdat" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Yaratma trh." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Erzet" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Saat" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SaveData" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Type"/>
+                </Key>
+                <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="İleti tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="İleti metni" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="StockControl" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="IvCharg"/>
+                    <PropertyRef Name="IvLgnum"/>
+                    <PropertyRef Name="IvLgpla"/>
+                    <PropertyRef Name="IvMatnr"/>
+                </Key>
+                <Property Name="IvCharg" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Parti" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvLgnum" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Depo numarası" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvLgpla" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Depo adresi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvMatnr" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Malzeme" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="İleti tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="İleti metni" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EvQuan" Type="Edm.Decimal" Nullable="false" Precision="31" Scale="14" sap:unicode="false" sap:label="Kullanılab.mkt." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EvUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Tml.ölçü birimi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+            </EntityType>
+            <EntityContainer Name="ZEWM_ADDRESS_TO_ADDRESS_TRNS_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="DataSet" EntityType="ZEWM_ADDRESS_TO_ADDRESS_TRNS_SRV.Data" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="BarcodeQuerySet" EntityType="ZEWM_ADDRESS_TO_ADDRESS_TRNS_SRV.BarcodeQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ListSet" EntityType="ZEWM_ADDRESS_TO_ADDRESS_TRNS_SRV.List" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SaveDataSet" EntityType="ZEWM_ADDRESS_TO_ADDRESS_TRNS_SRV.SaveData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="StockControlSet" EntityType="ZEWM_ADDRESS_TO_ADDRESS_TRNS_SRV.StockControl" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <FunctionImport Name="AddData" ReturnType="ZEWM_ADDRESS_TO_ADDRESS_TRNS_SRV.SaveData" EntitySet="SaveDataSet" m:HttpMethod="POST">
+                    <Parameter Name="Charg" Type="Edm.String" Mode="In"/>
+                    <Parameter Name="Miktar" Type="Edm.String" Mode="In"/>
+                    <Parameter Name="Meins" Type="Edm.String" Mode="In"/>
+                    <Parameter Name="Vlpla" Type="Edm.String" Mode="In"/>
+                    <Parameter Name="Owner" Type="Edm.String" Mode="In"/>
+                    <Parameter Name="OwnerText" Type="Edm.String" Mode="In"/>
+                    <Parameter Name="Nlpla" Type="Edm.String" Mode="In"/>
+                    <Parameter Name="Matnr" Type="Edm.String" Mode="In"/>
+                    <Parameter Name="Guid" Type="Edm.Guid" Mode="In" sap:label="UUID"/>
+                </FunctionImport>
+                <FunctionImport Name="SaveData" ReturnType="ZEWM_ADDRESS_TO_ADDRESS_TRNS_SRV.SaveData" EntitySet="SaveDataSet" m:HttpMethod="POST"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://vherjds4ap01.sap.erenenerji.com.tr:44300/sap/opu/odata/sap/ZEWM_ADDRESS_TO_ADDRESS_TRNS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://vherjds4ap01.sap.erenenerji.com.tr:44300/sap/opu/odata/sap/ZEWM_ADDRESS_TO_ADDRESS_TRNS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

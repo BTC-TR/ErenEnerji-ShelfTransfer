@@ -1,0 +1,122 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Table
+        selectionChange="onPressItem"
+        mode="SingleSelectLeft"
+        id="idTable"
+        width="auto"
+        items="{/ListSet}"
+    >
+        <headerToolbar>
+            <Toolbar id="addItemToolbar">
+                <Button
+                visible="false"
+                    text="{i18n>removeSelections}"
+                    press="onPressRemoveSelections"
+                    icon="sap-icon://activities"
+                    tooltip="{i18n>removeSelections}"
+                    enabled="{viewModel>/DeleteEnabled}"
+                />
+                <ToolbarSpacer />
+
+                <Button
+                    text="{i18n>deleteItem}"
+                    press="onPressDeleteItem"
+                    icon="sap-icon://delete"
+                    tooltip="{i18n>deleteItem}"
+                    enabled="{viewModel>/DeleteEnabled}"
+                />
+            </Toolbar>
+        </headerToolbar>
+        <columns>
+           <Column visible="false"
+                hAlign="Center"
+                minScreenWidth="Tablet"
+                demandPopin="true"
+            >
+                <Text text="{i18n>GuidStock}" />
+            </Column>
+            <Column
+                hAlign="Center"
+                minScreenWidth="Tablet"
+                demandPopin="true"
+            >
+                <Text text="{i18n>Matnr}" />
+            </Column>
+            <Column
+                hAlign="Center"
+                minScreenWidth="Tablet"
+                demandPopin="true"
+            >
+                <Text text="{i18n>Xchpf}" />
+            </Column>
+            <Column
+                hAlign="Center"
+                minScreenWidth="Tablet"
+                demandPopin="true"
+            >
+                <Text text="{i18n>Quantity}-{i18n>Meins}" />
+            </Column>
+
+            <Column
+                width="auto"
+                hAlign="Center"
+                autoPopinWidth="true"
+                demandPopin="true"
+                minScreenWidth="Tablet"
+            >
+                <Text text="{i18n>Klgort}" />
+            </Column>
+            <Column
+                hAlign="Center"
+                minScreenWidth="Tablet"
+                demandPopin="true"
+            >
+                <Text text="{i18n>Hlgort}" />
+            </Column>
+            <Column
+                hAlign="Center"
+                minScreenWidth="Tablet"
+                demandPopin="true"
+            >
+                <Text text="{i18n>Owners}" />
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem>
+                <cells>
+                <ObjectNumber
+                        state="Error"
+                        number="{GuidStock}"
+                    />
+                    <ObjectNumber
+                        state="Error"
+                        number="{Matnr}"
+                    />
+                    <ObjectNumber
+                        state="Success"
+                        number="{Charg}"
+                    />
+                    <ObjectNumber
+                        number="{path:'Miktar' ,formatter: '.formatter.numberUnit'}"
+                        unit="{Meins}"
+                    />
+                    <ObjectNumber
+                        state="Warning"
+                        number="{Vlpla}"
+                    />
+                    <ObjectNumber
+                        state="Information"
+                        number="{Nlpla}"
+                    />
+                    <ObjectNumber
+                        state="Information"
+                        number="{OwnerText}"
+                    />
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</core:FragmentDefinition>
