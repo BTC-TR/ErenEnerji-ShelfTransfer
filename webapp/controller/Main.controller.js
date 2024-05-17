@@ -68,7 +68,7 @@ sap.ui.define(
               oViewModel.setProperty("/Guid", oData.results[oSize].GuidStock);
               oViewModel.setProperty("/OwnerText", oData.results[oSize].OwnerText);
               oViewModel.setProperty("/Owner", oData.results[oSize].Owner);
-            
+
             }
             else {
               oSize = 1;
@@ -80,7 +80,7 @@ sap.ui.define(
             if (oData.results.length === 1) {
               this._stockControl();  // Stock Control Function
             }
-           
+
 
           },
           fnError = (err) => {
@@ -236,7 +236,7 @@ sap.ui.define(
         //-------------------------------------------------------------//
         // open value help dialog filtered by the input value
         this._valueHelpHlgort.open(sInputValue);
-      },  
+      },
 
       onStockQuery: async function () {
         let oCrossAppNavigator = sap.ushell.Container.getService(
@@ -717,22 +717,35 @@ sap.ui.define(
       },
       _getBarcodeDetail: async function (oBarcode, oKlgort) {
         let iBarcode = oBarcode.split("|"),
-          iCharg = "",
+          sCharg = "",
+          sMatnr = "",
           oModel = this.getModel(),
           oViewModel = this.getModel("viewModel"),
           sPath = "/BarcodeQuerySet";
 
-        //barcode-input ->  matnr|charg 
+        //Eğer barkod | ile bölünüyorsa, 0. indis malzeme, 1. parti
         if (iBarcode.length === 2) {
-          iCharg = iBarcode[1];
+          sCharg = iBarcode[1];
+        }
+        sMatnr = iBarcode[0];
+
+        if (iBarcode[0].length >= 10 && oBarcode.includes("|") === false) {
+          oViewModel.setProperty("/Charg", oBarcode.substr(oBarcode.length - 10));
+          sMatnr = "";
+          sCharg = oBarcode.substr(oBarcode.length - 10);
+        }
+        else {
+          oViewModel.setProperty("/Charg", sCharg);
         }
 
+
+
         // oViewModel.setProperty("/Barcode", iBarcode[0]);
-        oViewModel.setProperty("/Charg", iCharg);
+        oViewModel.setProperty("/Charg", sCharg);
 
         const aFilters = [
-          new Filter("IvMatnr", FilterOperator.EQ, iBarcode[0]),
-          new Filter("IvCharg", FilterOperator.EQ, iCharg),
+          new Filter("IvMatnr", FilterOperator.EQ, sMatnr),
+          new Filter("IvCharg", FilterOperator.EQ, sCharg),
           new Filter("IvLgpla", FilterOperator.EQ, oKlgort)
         ];
 
@@ -838,14 +851,14 @@ sap.ui.define(
             sap.ui.core.BusyIndicator.hide();
             oViewModel.setProperty("/busy", false);
           };
-        await this._checkStock(oCharg, oLgnum, oKlgort, oMatnr,oOwner)
+        await this._checkStock(oCharg, oLgnum, oKlgort, oMatnr, oOwner)
           .then(fnSuccess)
           .catch(fnError)
           .finally(fnFinally);
 
 
       },
-      _checkStock: async function (oCharg, oLgnum, oKlgort, oMatnr,oOwner) {
+      _checkStock: async function (oCharg, oLgnum, oKlgort, oMatnr, oOwner) {
 
         let oModel = this.getModel();
 
