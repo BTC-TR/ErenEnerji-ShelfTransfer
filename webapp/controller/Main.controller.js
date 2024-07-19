@@ -523,7 +523,7 @@ sap.ui.define(
             Matnr: sMatnr,
             Guid: sGuid,
             Meins: sMeins,
-            Miktar: sMiktar,
+            Miktar: formatter.changeNumber(sMiktar),
             Nlpla: sNlpla,
             Owner: sOwner,
             OwnerText: sOwnerText,
@@ -835,7 +835,7 @@ sap.ui.define(
 
         let fnSuccess = (oData) => {
           if (oData.EvQuan) {
-            oViewModel.setProperty("/StockInfo", parseInt(oData.EvQuan));
+            oViewModel.setProperty("/StockInfo", parseFloat(oData.EvQuan));
             oViewModel.setProperty("/Unit", oData.EvUnit);
           } else {
             if (oData.Message) {

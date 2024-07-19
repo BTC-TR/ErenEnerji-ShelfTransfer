@@ -27,7 +27,12 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
                     return "";
                 }
                 return oFloatFormat.format(sValue);
-        }
+        },
+
+        changeNumber: function (iNumber) {
+			return iNumber.replaceAll(".", "").replace(",", ".");
+		}
+
 
 
     };

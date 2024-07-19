@@ -188,7 +188,7 @@
             text="{i18n>StockInfo}"
         />
 
-        <ObjectNumber number="{ path: 'viewModel>/StockInfo', type: 'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 2, maxFractionDigits: 2 } }">
+        <ObjectNumber number="{ path: 'viewModel>/StockInfo', type: 'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 3, maxFractionDigits: 3 } }">
         
         <!-- <Text
             id="_IDGenText45"
