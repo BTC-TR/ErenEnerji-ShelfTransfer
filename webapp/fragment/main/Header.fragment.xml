@@ -31,17 +31,10 @@
             value="{viewModel>/Klgort}"
             valueState="{viewModel>/valueStateKlgort}"
             valueStateText="{viewModel>/valueStateKlgortT}"
-            showSuggestion="true"
-            suggestionItems="{common_service>/LgplaSHSet}"
         >
-           	<layoutData>
-					<l:GridData
-						span="XL8 L8 M8 S12"
-					/>
-				</layoutData>
-            <suggestionItems>
-                <core:Item text="{common_service>Lgpla}" />
-            </suggestionItems>
+            <layoutData>
+                <l:GridData span="XL8 L8 M8 S12" />
+            </layoutData>
         </Input>
         <Label
             width="auto"
@@ -59,17 +52,10 @@
             value="{viewModel>/Hlgort}"
             valueState="{viewModel>/valueStateHlgort}"
             valueStateText="{viewModel>/valueStateHlgortT}"
-            showSuggestion="true"
-            suggestionItems="{common_service>/LgplaSHSet}"
         >
-           	<layoutData>
-					<l:GridData
-						span="XL8 L8 M8 S12"
-					/>
-				</layoutData>
-            <suggestionItems>
-                <core:Item text="{common_service>Lgpla}" />
-            </suggestionItems>
+            <layoutData>
+                <l:GridData span="XL8 L8 M8 S12" />
+            </layoutData>
         </Input>
         <Label
             width="auto"
@@ -81,11 +67,9 @@
             value="{viewModel>/Barcode}"
             liveChange="onLiveChangeBarcode"
         >
-            	<layoutData>
-					<l:GridData
-						span="XL8 L8 M8 S12"
-					/>
-				</layoutData>
+            <layoutData>
+                <l:GridData span="XL8 L8 M8 S12" />
+            </layoutData>
         </Input>
         <Label
             width="auto"
@@ -102,11 +86,9 @@
                 key="{viewModel>Owner}"
                 text="{viewModel>OwnerText}"
             />
-          	<layoutData>
-					<l:GridData
-						span="XL8 L8 M8 S12"
-					/>
-				</layoutData>
+            <layoutData>
+                <l:GridData span="XL8 L8 M8 S12" />
+            </layoutData>
         </Select>
         <Label
             width="auto"
@@ -117,11 +99,9 @@
             id="idMatnr"
             text="{viewModel>/Matnr}"
         >
-           	<layoutData>
-					<l:GridData
-						span="XL8 L8 M8 S12"
-					/>
-				</layoutData>
+            <layoutData>
+                <l:GridData span="XL8 L8 M8 S12" />
+            </layoutData>
         </Text>
         <Label
             width="auto"
@@ -132,11 +112,9 @@
             id="idMaktx"
             text="{viewModel>/Maktx}"
         >
-            	<layoutData>
-					<l:GridData
-						span="XL8 L8 M8 S12"
-					/>
-				</layoutData>
+            <layoutData>
+                <l:GridData span="XL8 L8 M8 S12" />
+            </layoutData>
         </Text>
         <Label
             width="auto"
@@ -153,11 +131,9 @@
             valueStateText="{viewModel>/valueStateChargT}"
             valueState="{viewModel>/valueStateCharg}"
         >
-          	<layoutData>
-					<l:GridData
-						span="XL8 L8 M8 S12"
-					/>
-				</layoutData>
+            <layoutData>
+                <l:GridData span="XL8 L8 M8 S12" />
+            </layoutData>
         </Input>
         <Label
             width="auto"
@@ -169,11 +145,9 @@
             value="{viewModel>/Quantity}"
             change="onChangeQuan"
         >
-        	<layoutData>
-					<l:GridData
-						span="XL8 L8 M8 S12"
-					/>
-				</layoutData>
+            <layoutData>
+                <l:GridData span="XL8 L8 M8 S12" />
+            </layoutData>
             <customData>
                 <core:CustomData
                     key="meins"
@@ -188,9 +162,10 @@
             text="{i18n>StockInfo}"
         />
 
-        <ObjectNumber number="{ path: 'viewModel>/StockInfo', type: 'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 3, maxFractionDigits: 3 } }">
-        
-        <!-- <Text
+        <ObjectNumber
+            number="{ path: 'viewModel>/StockInfo', type: 'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 3, maxFractionDigits: 3 } }"
+        >
+            <!-- <Text
             id="_IDGenText45"
             text="{
                 path: 'viewModel>/StockInfo',
@@ -199,12 +174,9 @@
             }"
         > -->
 
-         
-            	<layoutData>
-					<l:GridData
-						span="XL8 L8 M8 S12"
-					/>
-				</layoutData>
+            <layoutData>
+                <l:GridData span="XL8 L8 M8 S12" />
+            </layoutData>
             <customData>
                 <core:CustomData
                     key="meins"
@@ -212,7 +184,7 @@
                     value="{viewModel>/Unit}"
                 />
             </customData>
-        <!-- </Text> -->
+            <!-- </Text> -->
         </ObjectNumber>
         <!-- <Label width="auto" id="_IDGenLabel1450" />
         <Button  type="Success"     icon="sap-icon://add" text="{i18n>add}" press="onAddItem" >
