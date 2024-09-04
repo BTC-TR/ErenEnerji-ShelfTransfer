@@ -81,7 +81,7 @@ sap.ui.define(
               this._stockControl();  // Stock Control Function
             }
 
-
+           // this.getView().byId("idOwners").open();
           },
           fnError = (err) => {
             let oMsg = JSON.parse(err.responseText).error.message.value;
@@ -282,7 +282,7 @@ sap.ui.define(
             type: DialogType.Message,
             title: "Mesaj Kutusu",
             content: new Text({
-              text: "Satır silinsin mi ?"
+              text: "Sat�r silinsin mi ?"
             }),
             beginButton: new Button({
               type: ButtonType.Emphasized,
@@ -400,6 +400,9 @@ sap.ui.define(
           );
           oViewModel.setProperty("/Klgort", oSelectedItem.getTitle());
           this._onAddressCheckKlgort(oSelectedItem.getTitle());
+          jQuery.sap.delayedCall(100, this, function () {
+            this.getView().byId("_IDGenInput2").focus();
+          });
 
           //     this._getLgnumType(oSelectedItem.getTitle());
         }
@@ -414,6 +417,9 @@ sap.ui.define(
 
           oViewModel.setProperty("/GenericHlgort", oSelectedItem.getTitle());
           oViewModel.setProperty("/Hlgort", oSelectedItem.getTitle());
+          jQuery.sap.delayedCall(100, this, function () {
+            this.getView().byId("_IDGenInput3").focus();
+          });
 
 
         }
@@ -498,7 +504,7 @@ sap.ui.define(
         this.onClear();
         this._getMaterialSH();
 
-        jQuery.sap.delayedCall(100, this, function () {
+        jQuery.sap.delayedCall(500, this, function () {
           this.getView().byId("_IDGenInput1").focus();
         });
 
@@ -582,15 +588,21 @@ sap.ui.define(
               }
               else {
                 oViewModel.setProperty("/valueStateHlgort", "Error");
-                oViewModel.setProperty("/Hlgort", "");
+                oViewModel.setProperty("/Hlgort", "");                
               }
             }
             else {
               if (bValue) {
                 oViewModel.setProperty("/valueStateKlgort", "Success");
+                jQuery.sap.delayedCall(100, this, function () {
+                  this.getView().byId("_IDGenInput2").focus();
+                });
               }
               else {
                 oViewModel.setProperty("/valueStateHlgort", "Success");
+                jQuery.sap.delayedCall(100, this, function () {
+                  this.getView().byId("_IDGenInput3").focus();
+                });
               }
             }
           })
@@ -618,6 +630,9 @@ sap.ui.define(
             if (oData.results.length > 0) {
               oViewModel.setProperty("/Materials", oData.results);
             }
+            jQuery.sap.delayedCall(100, this, function () {
+              this.getView().byId("_IDGenInput1").focus();
+            });
           },
           fnError = err => { },
           fnFinally = () => { };
@@ -723,7 +738,7 @@ sap.ui.define(
           oViewModel = this.getModel("viewModel"),
           sPath = "/BarcodeQuerySet";
 
-        //Eğer barkod | ile bölünüyorsa, 0. indis malzeme, 1. parti
+        //E�er barkod | ile b�l�n�yorsa, 0. indis malzeme, 1. parti
         if (iBarcode.length === 2) {
           sCharg = iBarcode[1];
         }
@@ -837,6 +852,9 @@ sap.ui.define(
           if (oData.EvQuan) {
             oViewModel.setProperty("/StockInfo", parseFloat(oData.EvQuan));
             oViewModel.setProperty("/Unit", oData.EvUnit);
+            jQuery.sap.delayedCall(100, this, function () {
+              this.getView().byId("_IDGenText23").focus();
+            });
           } else {
             if (oData.Message) {
               sap.m.MessageBox.error(oData.Message);
