@@ -51,6 +51,7 @@
 		</Input>
 		<Label width="auto" id="_IDGenLabel9" text="{i18n>Quantity}"/>
 		<Input id="idQuantity"
+		liveChange="onQuantityLiveChange"
 			value="{ parts: [ { path: 'viewModel>/Quantity' }, { path: 'viewModel>/Meins' } ], formatter: '.formatter.formatQuantity' }"
 			change="onChangeQuan">
 			<layoutData>

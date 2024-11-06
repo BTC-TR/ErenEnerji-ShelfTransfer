@@ -429,48 +429,13 @@ sap.ui.define(
 					iQuan = oEvent.getSource().getValue(),
 					iEvQuan = oViewModel.getProperty("/StockInfo"),
 					iMeins = oViewModel.getProperty("/Meins"),
-					that = this,
 					formettedNumber = formatter.changeNumber(iQuan);
 
 				if (parseFloat(formettedNumber) > parseInt(iEvQuan)) {
 					sap.m.MessageBox.error(
 						this.getResourceBundle().getText("errorQuan", [parseFloat(formettedNumber), parseInt(iEvQuan), iMeins]));
 					iQuantity.setValue("");
-				} else if (iMeins === "ADT" || iMeins === "PC") {
-					let isInteger = Number.isInteger(parseFloat(formettedNumber));
-					if (isInteger) {
-						this._onAddItem();
-					} else {
-
-						sap.m.MessageBox.show(this.getResourceBundle().getText("errorQuanPC", [parseFloat(formettedNumber), iMeins]), {
-							icon: sap.m.MessageBox.Icon.QUESTION,
-							title: "Yuvarlama Seçimi",
-							actions: [
-								"Yukarı",
-								"Aşağı",
-								sap.m.MessageBox.Action.CANCEL
-							],
-							onClose: function(oAction) {
-								let inputNumber = parseFloat(formettedNumber);
-								let result;
-
-								if (oAction === "Yukarı") {
-									result = Math.ceil(inputNumber);
-									iQuantity.setValue(result);
-									that._onAddItem();
-								} else if (oAction === "Aşağı") {
-									result = Math.floor(inputNumber);
-									iQuantity.setValue(result);
-									that._onAddItem();
-								} else if (oAction === sap.m.MessageBox.Action.CANCEL) {
-									iQuantity.setValue("");
-								}
-							}
-						});
-
-					}
-
-				} else {
+				}  else {
 					this._onAddItem();
 				}
 			},
@@ -534,7 +499,7 @@ sap.ui.define(
 				});
 
 			},
-			_onAddItem: async function(oEvent) {
+			_onAddItem: async function() {
 
 				let oViewModel = this.getView().getModel("viewModel"),
 					sCharg = oViewModel.getProperty("/Charg"),
@@ -901,6 +866,30 @@ sap.ui.define(
 						});
 					oModel.read(sPath, oParams);
 				});
+			},
+			onQuantityLiveChange: function(oEvent) {
+				let sValue = oEvent.getParameter("value");
+
+				let oViewModel = this.getView().getModel("viewModel"),
+					sMeins = oViewModel.getProperty("/Meins"),
+					sFilteredValue;
+			
+					
+				if(sMeins === 'ADT' || sMeins === 'PC'){
+					  // Sadece sayıları kabul et (0-9)
+     			sFilteredValue = sValue.replace(/[^0-9]/g, "");
+				}
+				else{
+				// Sayı ve yalnızca bir virgül dışında karakterleri temizle, ve sadece 1 tane virgül.
+				sFilteredValue = sValue.replace(/[^0-9,]/g, "");
+				sFilteredValue = sFilteredValue.replace(/(,.*),/g, "$1");
+				}
+							
+			
+				// Eğer girdi filtrelendi ise, değeri Input alanına geri yaz
+				if (sValue !== sFilteredValue) {
+					oEvent.getSource().setValue(sFilteredValue);
+				}
 			}
 		});
 	}
