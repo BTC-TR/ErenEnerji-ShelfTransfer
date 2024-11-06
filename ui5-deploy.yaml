@@ -20,10 +20,6 @@ builder:
           name: ZEWM_ADDRESS_TR
           description: Address Transfer
           package: ZFIORI_EWM
-<<<<<<< HEAD
-          transport: DS4K901430
-=======
           transport: DS4K902404
->>>>>>> cd1949f (Miktar Değişiklikleri)
         exclude:
           - /test/
