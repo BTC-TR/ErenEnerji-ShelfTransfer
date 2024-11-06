@@ -41,9 +41,6 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 
         changeNumber: function (iNumber) {
 			return iNumber.replaceAll(".", "").replace(",", ".");
-<<<<<<< HEAD
-		}
-=======
 		},
 
         formatQuantity: function(quantity, meins) {
@@ -61,7 +58,6 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
                 });
             }
         }
->>>>>>> cd1949f (Miktar Değişiklikleri)
 
 
 
