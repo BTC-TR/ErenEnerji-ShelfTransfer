@@ -140,9 +140,22 @@
             id="_IDGenLabel9"
             text="{i18n>Quantity}"
         />
+<<<<<<< HEAD
         <Input
             id="_IDGenText23"
             value="{viewModel>/Quantity}"
+=======
+        <!-- <Input
+            id="_IDGenText23"
+            value= "{ path: 'viewModel>/Quantity', type: 'sap.ui.model.type.Float',
+                     formatOptions: { 
+                            minFractionDigits: 3,
+                            maxFractionDigits: 3,
+                            groupingEnabled: true,
+                            groupingSeparator: '.',
+                            decimalSeparator: ','
+                            } }"           
+>>>>>>> cd1949f (Miktar Değişiklikleri)
             change="onChangeQuan"
         >
             <layoutData>
@@ -155,7 +168,34 @@
                     value="{viewModel>/Meins}"
                 />
             </customData>
+<<<<<<< HEAD
         </Input>
+=======
+        </Input> -->
+
+        <Input
+    id="idQuantity"
+    value="{ 
+        parts: [
+            { path: 'viewModel>/Quantity' },
+            { path: 'viewModel>/Meins' }
+        ],
+        formatter: '.formatter.formatQuantity'
+    }"
+    change="onChangeQuan"
+>
+    <layoutData>
+        <l:GridData span="XL8 L8 M8 S12" />
+    </layoutData>
+    <customData>
+        <core:CustomData
+            key="meins"
+            writeToDom="true"
+            value="{viewModel>/Meins}"
+        />
+    </customData>
+</Input>
+>>>>>>> cd1949f (Miktar Değişiklikleri)
         <Label
             width="auto"
             id="_IDGenLabel10"
@@ -163,6 +203,7 @@
         />
 
         <ObjectNumber
+<<<<<<< HEAD
             number="{ path: 'viewModel>/StockInfo', type: 'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 3, maxFractionDigits: 3 } }"
         >
             <!-- <Text
@@ -174,6 +215,17 @@
             }"
         > -->
 
+=======
+           
+                            number= "{ 
+        parts: [
+            { path: 'viewModel>/StockInfo' },
+            { path: 'viewModel>/Meins' }
+        ],
+        formatter: '.formatter.formatQuantity'
+    }"
+        >
+>>>>>>> cd1949f (Miktar Değişiklikleri)
             <layoutData>
                 <l:GridData span="XL8 L8 M8 S12" />
             </layoutData>

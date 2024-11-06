@@ -11,9 +11,19 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
          */
         numberUnit : function (sValue) {
             if (!sValue) {
+<<<<<<< HEAD
                 return "";
             }
             return parseFloat(sValue).toFixed(3);
+=======
+				return "";
+			}
+
+			let returnValue = parseFloat(sValue).toFixed(3),
+				x = returnValue.replace(".", ",");
+
+			return x;
+>>>>>>> cd1949f (Miktar Değişiklikleri)
         },
         TotalQty:function(sValue){
 
@@ -31,7 +41,27 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 
         changeNumber: function (iNumber) {
 			return iNumber.replaceAll(".", "").replace(",", ".");
+<<<<<<< HEAD
 		}
+=======
+		},
+
+        formatQuantity: function(quantity, meins) {
+            if (!quantity) return "";
+
+            // "adet" birimi olduğunda ondalık kısmı göstermeyin
+            if (meins === "PC" || meins === "ADT" ) {
+                return parseInt(quantity, 10).toLocaleString('tr-TR'); // Sadece tam sayı kısmını döndürür
+            } 
+            // Diğer durumlarda 3 ondalık basamağa kadar göster
+            else {
+                return parseFloat(quantity).toLocaleString('tr-TR', {
+                    minimumFractionDigits: 3,
+                    maximumFractionDigits: 3
+                });
+            }
+        }
+>>>>>>> cd1949f (Miktar Değişiklikleri)
 
 
 
