@@ -1,246 +1,78 @@
-<core:FragmentDefinition
-    xmlns="sap.m"
-    xmlns:core="sap.ui.core"
-    xmlns:f="sap.ui.layout.form"
-    xmlns:l="sap.ui.layout"
->
-    <f:SimpleForm
-        editable="true"
-        id="idHeaderSimpleForm"
-        layout="ResponsiveGridLayout"
-        labelSpanXL="4"
-        labelSpanM="4"
-        labelSpanS="12"
-        emptySpanXL="0"
-        columnsXL="1"
-        singleContainerFullSize="false"
-    >
-        <Label
-            width="auto"
-            id="_IDGenLabel4"
-            text="{i18n>Klgort}"
-        />
-        <Input
-            id="_IDGenInput1"
-            showValueHelp="true"
-            valueHelpRequest="onValueHelpKlgort"
-            maxLength="18"
-            placeholder="{i18n>startKlgort}"
-            change="onLgplaCheck"
-            submit="onLgplaCheck"
-            value="{viewModel>/Klgort}"
-            valueState="{viewModel>/valueStateKlgort}"
-            valueStateText="{viewModel>/valueStateKlgortT}"
-        >
-            <layoutData>
-                <l:GridData span="XL8 L8 M8 S12" />
-            </layoutData>
-        </Input>
-        <Label
-            width="auto"
-            id="_IDGenLabel5"
-            text="{i18n>Hlgort}"
-        />
-        <Input
-            showValueHelp="true"
-            valueHelpRequest="onValueHelpHlgort"
-            placeholder="{i18n>startHlgort}"
-            id="_IDGenInput2"
-            maxLength="18"
-            submit="onLgplaCheck"
-            change="onLgplaCheck"
-            value="{viewModel>/Hlgort}"
-            valueState="{viewModel>/valueStateHlgort}"
-            valueStateText="{viewModel>/valueStateHlgortT}"
-        >
-            <layoutData>
-                <l:GridData span="XL8 L8 M8 S12" />
-            </layoutData>
-        </Input>
-        <Label
-            width="auto"
-            id="_IDGenLabel3"
-            text="{i18n>Barcode}"
-        />
-        <Input
-            id="_IDGenInput3"
-            value="{viewModel>/Barcode}"
-            liveChange="onLiveChangeBarcode"
-        >
-            <layoutData>
-                <l:GridData span="XL8 L8 M8 S12" />
-            </layoutData>
-        </Input>
-        <Label
-            width="auto"
-            text="{i18n>Owners}"
-            required="false"
-        />
-        <Select
-            id="idOwners"
-            items="{viewModel>/Owners}"
-            selectedKey="{viewModel>/Owner}"
-            change="onChangeOwner"
-        >
-            <core:Item
-                key="{viewModel>Owner}"
-                text="{viewModel>OwnerText}"
-            />
-            <layoutData>
-                <l:GridData span="XL8 L8 M8 S12" />
-            </layoutData>
-        </Select>
-        <Label
-            width="auto"
-            id="_IDGenLabel11"
-            text="{i18n>Matnr}"
-        />
-        <Text
-            id="idMatnr"
-            text="{viewModel>/Matnr}"
-        >
-            <layoutData>
-                <l:GridData span="XL8 L8 M8 S12" />
-            </layoutData>
-        </Text>
-        <Label
-            width="auto"
-            id="_IDGenLabel6"
-            text="{i18n>Maktx}"
-        />
-        <Text
-            id="idMaktx"
-            text="{viewModel>/Maktx}"
-        >
-            <layoutData>
-                <l:GridData span="XL8 L8 M8 S12" />
-            </layoutData>
-        </Text>
-        <Label
-            width="auto"
-            id="_IDGenLabel8"
-            required="{viewModel>/ChargEnabled}"
-            text="{i18n>Xchpf}"
-        />
-        <Input
-            maxLength="10"
-            id="_IDGenInput4"
-            editable="{= ${viewModel>/BarcodeForm/Xchpf} ? true : false }"
-            value="{viewModel>/Charg}"
-            enabled="{viewModel>/ChargEnabled}"
-            valueStateText="{viewModel>/valueStateChargT}"
-            valueState="{viewModel>/valueStateCharg}"
-        >
-            <layoutData>
-                <l:GridData span="XL8 L8 M8 S12" />
-            </layoutData>
-        </Input>
-        <Label
-            width="auto"
-            id="_IDGenLabel9"
-            text="{i18n>Quantity}"
-        />
-<<<<<<< HEAD
-        <Input
-            id="_IDGenText23"
-            value="{viewModel>/Quantity}"
-=======
-        <!-- <Input
-            id="_IDGenText23"
-            value= "{ path: 'viewModel>/Quantity', type: 'sap.ui.model.type.Float',
-                     formatOptions: { 
-                            minFractionDigits: 3,
-                            maxFractionDigits: 3,
-                            groupingEnabled: true,
-                            groupingSeparator: '.',
-                            decimalSeparator: ','
-                            } }"           
->>>>>>> cd1949f (Miktar Değişiklikleri)
-            change="onChangeQuan"
-        >
-            <layoutData>
-                <l:GridData span="XL8 L8 M8 S12" />
-            </layoutData>
-            <customData>
-                <core:CustomData
-                    key="meins"
-                    writeToDom="true"
-                    value="{viewModel>/Meins}"
-                />
-            </customData>
-<<<<<<< HEAD
-        </Input>
-=======
-        </Input> -->
-
-        <Input
-    id="idQuantity"
-    value="{ 
-        parts: [
-            { path: 'viewModel>/Quantity' },
-            { path: 'viewModel>/Meins' }
-        ],
-        formatter: '.formatter.formatQuantity'
-    }"
-    change="onChangeQuan"
->
-    <layoutData>
-        <l:GridData span="XL8 L8 M8 S12" />
-    </layoutData>
-    <customData>
-        <core:CustomData
-            key="meins"
-            writeToDom="true"
-            value="{viewModel>/Meins}"
-        />
-    </customData>
-</Input>
->>>>>>> cd1949f (Miktar Değişiklikleri)
-        <Label
-            width="auto"
-            id="_IDGenLabel10"
-            text="{i18n>StockInfo}"
-        />
-
-        <ObjectNumber
-<<<<<<< HEAD
-            number="{ path: 'viewModel>/StockInfo', type: 'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 3, maxFractionDigits: 3 } }"
-        >
-            <!-- <Text
-            id="_IDGenText45"
-            text="{
-                path: 'viewModel>/StockInfo',
-                type: 'sap.ui.model.type.Float',
-                formatter: '.formatter.TotalQty'
-            }"
-        > -->
-
-=======
-           
-                            number= "{ 
-        parts: [
-            { path: 'viewModel>/StockInfo' },
-            { path: 'viewModel>/Meins' }
-        ],
-        formatter: '.formatter.formatQuantity'
-    }"
-        >
->>>>>>> cd1949f (Miktar Değişiklikleri)
-            <layoutData>
-                <l:GridData span="XL8 L8 M8 S12" />
-            </layoutData>
-            <customData>
-                <core:CustomData
-                    key="meins"
-                    writeToDom="true"
-                    value="{viewModel>/Unit}"
-                />
-            </customData>
-            <!-- </Text> -->
-        </ObjectNumber>
-        <!-- <Label width="auto" id="_IDGenLabel1450" />
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<f:SimpleForm editable="true" id="idHeaderSimpleForm" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanM="4" labelSpanS="12"
+		emptySpanXL="0" columnsXL="1" singleContainerFullSize="false">
+		<Label width="auto" id="_IDGenLabel4" text="{i18n>Klgort}"/>
+		<Input id="_IDGenInput1" showValueHelp="true" valueHelpRequest="onValueHelpKlgort" maxLength="18" placeholder="{i18n>startKlgort}"
+			change="onLgplaCheck" submit="onLgplaCheck" value="{viewModel>/Klgort}" valueState="{viewModel>/valueStateKlgort}"
+			valueStateText="{viewModel>/valueStateKlgortT}">
+			<layoutData>
+				<l:GridData span="XL8 L8 M8 S12"/>
+			</layoutData>
+		</Input>
+		<Label width="auto" id="_IDGenLabel5" text="{i18n>Hlgort}"/>
+		<Input showValueHelp="true" valueHelpRequest="onValueHelpHlgort" placeholder="{i18n>startHlgort}" id="_IDGenInput2" maxLength="18"
+			submit="onLgplaCheck" change="onLgplaCheck" value="{viewModel>/Hlgort}" valueState="{viewModel>/valueStateHlgort}"
+			valueStateText="{viewModel>/valueStateHlgortT}">
+			<layoutData>
+				<l:GridData span="XL8 L8 M8 S12"/>
+			</layoutData>
+		</Input>
+		<Label width="auto" id="_IDGenLabel3" text="{i18n>Barcode}"/>
+		<Input id="_IDGenInput3" value="{viewModel>/Barcode}" liveChange="onLiveChangeBarcode">
+			<layoutData>
+				<l:GridData span="XL8 L8 M8 S12"/>
+			</layoutData>
+		</Input>
+		<Label width="auto" text="{i18n>Owners}" required="false"/>
+		<Select id="idOwners" items="{viewModel>/Owners}" selectedKey="{viewModel>/Owner}" change="onChangeOwner">
+			<core:Item key="{viewModel>Owner}" text="{viewModel>OwnerText}"/>
+			<layoutData>
+				<l:GridData span="XL8 L8 M8 S12"/>
+			</layoutData>
+		</Select>
+		<Label width="auto" id="_IDGenLabel11" text="{i18n>Matnr}"/>
+		<Text id="idMatnr" text="{viewModel>/Matnr}">
+			<layoutData>
+				<l:GridData span="XL8 L8 M8 S12"/>
+			</layoutData>
+		</Text>
+		<Label width="auto" id="_IDGenLabel6" text="{i18n>Maktx}"/>
+		<Text id="idMaktx" text="{viewModel>/Maktx}">
+			<layoutData>
+				<l:GridData span="XL8 L8 M8 S12"/>
+			</layoutData>
+		</Text>
+		<Label width="auto" id="_IDGenLabel8" required="{viewModel>/ChargEnabled}" text="{i18n>Xchpf}"/>
+		<Input maxLength="10" id="_IDGenInput4" editable="{= ${viewModel>/BarcodeForm/Xchpf} ? true : false }" value="{viewModel>/Charg}"
+			enabled="{viewModel>/ChargEnabled}" valueStateText="{viewModel>/valueStateChargT}" valueState="{viewModel>/valueStateCharg}">
+			<layoutData>
+				<l:GridData span="XL8 L8 M8 S12"/>
+			</layoutData>
+		</Input>
+		<Label width="auto" id="_IDGenLabel9" text="{i18n>Quantity}"/>
+		<Input id="idQuantity"
+			value="{ parts: [ { path: 'viewModel>/Quantity' }, { path: 'viewModel>/Meins' } ], formatter: '.formatter.formatQuantity' }"
+			change="onChangeQuan">
+			<layoutData>
+				<l:GridData span="XL8 L8 M8 S12"/>
+			</layoutData>
+			<customData>
+				<core:CustomData key="meins" writeToDom="true" value="{viewModel>/Meins}"/>
+			</customData>
+		</Input>
+		<Label width="auto" id="_IDGenLabel10" text="{i18n>StockInfo}"/>
+		<ObjectNumber number="{ parts: [ { path: 'viewModel>/StockInfo' }, { path: 'viewModel>/Meins' } ], formatter: '.formatter.formatQuantity' }">
+			<layoutData>
+				<l:GridData span="XL8 L8 M8 S12"/>
+			</layoutData>
+			<customData>
+				<core:CustomData key="meins" writeToDom="true" value="{viewModel>/Unit}"/>
+			</customData>
+			<!-- </Text> -->
+		</ObjectNumber>
+		<!-- <Label width="auto" id="_IDGenLabel1450" />
         <Button  type="Success"     icon="sap-icon://add" text="{i18n>add}" press="onAddItem" >
         </Button>
     -->
-    </f:SimpleForm>
+	</f:SimpleForm>
 </core:FragmentDefinition>

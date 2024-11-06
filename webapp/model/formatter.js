@@ -11,11 +11,6 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
          */
         numberUnit : function (sValue) {
             if (!sValue) {
-<<<<<<< HEAD
-                return "";
-            }
-            return parseFloat(sValue).toFixed(3);
-=======
 				return "";
 			}
 
@@ -23,7 +18,6 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 				x = returnValue.replace(".", ",");
 
 			return x;
->>>>>>> cd1949f (Miktar Değişiklikleri)
         },
         TotalQty:function(sValue){
 
