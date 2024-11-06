@@ -847,7 +847,7 @@ sap.ui.define(
 
 				oModel.remove(sPath);
 				this.getView().byId("idTable").removeSelections();
-				oViewModel.setProperty("/DeleteEnabled", true);
+				oViewModel.setProperty("/DeleteEnabled", false);
 				this.getModel().refresh(true);
 			},
 			_stockControl: async function() {
