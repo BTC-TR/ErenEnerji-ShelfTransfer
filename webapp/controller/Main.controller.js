@@ -431,7 +431,7 @@ sap.ui.define(
 					iMeins = oViewModel.getProperty("/Meins"),
 					formettedNumber = formatter.changeNumber(iQuan);
 
-				if (parseFloat(formettedNumber) > parseInt(iEvQuan)) {
+				if (parseFloat(formettedNumber) > parseFloat(iEvQuan)) {
 					sap.m.MessageBox.error(
 						this.getResourceBundle().getText("errorQuan", [parseFloat(formettedNumber), parseInt(iEvQuan), iMeins]));
 					iQuantity.setValue("");

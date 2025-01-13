@@ -16,10 +16,11 @@ builder:
         target:
           destination: ErenEnerji
           url: http://192.168.212.33:8000
+          client: 100
         app:
           name: ZEWM_ADDRESS_TR
           description: Address Transfer
           package: ZFIORI_EWM
-          transport: DS4K902404
+          transport: DS4K903429
         exclude:
           - /test/
