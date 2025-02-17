@@ -75,6 +75,7 @@ sap.ui.define(
 						oViewModel.setProperty("/Meins", oData.results[oSize].Meins);
 						oViewModel.setProperty("/Matnr", oData.results[oSize].Matnr);
 						oViewModel.setProperty("/Maktx", oData.results[oSize].Maktx);
+						oViewModel.setProperty("/Charg", oData.results[oSize].Charg);
 						if (oData.results.length === 1) {
 							this._stockControl(); // Stock Control Function
 						}
