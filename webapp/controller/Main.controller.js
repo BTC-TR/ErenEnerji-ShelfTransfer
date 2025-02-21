@@ -716,13 +716,17 @@ sap.ui.define(
 					oViewModel = this.getModel("viewModel"),
 					sPath = "/BarcodeQuerySet";
 
-				//Eğer barkod | ile bölünüyorsa, 0. indis malzeme, 1. parti
-				if (iBarcode.length === 2) {
-					sCharg = iBarcode[1];
-				}
-				sMatnr = iBarcode[0];
+				let newBarcode = iBarcode.map((item) => {
+					return parseInt(item).toString();
+				})
 
-				if (iBarcode[0].length >= 10 && oBarcode.includes("|") === false) {
+				//Eğer barkod | ile bölünüyorsa, 0. indis malzeme, 1. parti
+				if (newBarcode.length === 2) {
+					sCharg = newBarcode[1];
+				}
+				sMatnr = newBarcode[0];
+
+				if (newBarcode[0].length >= 10 && oBarcode.includes("|") === false) {
 					oViewModel.setProperty("/Charg", oBarcode.substr(oBarcode.length - 10));
 					sMatnr = "";
 					sCharg = oBarcode.substr(oBarcode.length - 10);
