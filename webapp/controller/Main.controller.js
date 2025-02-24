@@ -717,7 +717,7 @@ sap.ui.define(
 					sPath = "/BarcodeQuerySet";
 
 				let newBarcode = iBarcode.map((item) => {
-					return parseInt(item).toString();
+					return item ? parseInt(item).toString() : "";
 				})
 
 				//Eğer barkod | ile bölünüyorsa, 0. indis malzeme, 1. parti
